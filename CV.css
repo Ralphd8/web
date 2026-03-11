@@ -1,0 +1,46 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+.top-page-section{
+    background-color:cyan;
+    text-align:center;
+}
+.top-page-section p{
+    padding:0;
+    margin:0;
+}
+.my-name {
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    font-size: xx-large;
+    font-weight: bold;
+}
+.info {
+    font-family: "Times New Roman", Times, serif;
+    font-size: large;
+}
+.section-title{
+    font-family: "Times New Roman", Times, serif;
+    font-size: large;
+    font-weight:bold;
+    padding:0;
+    margin:0;
+    text-align:center;
+}
+.header-info{
+    display:flex;
+}
+.header-info p{
+    margin:0;
+    font-size:large;
+    font-weight:bold;
+}
+.header-info p:first-child{
+    width: 30%;
+    text-align:left;
+}
+.header-info p:last-child{
+    width: 70%;
+    text-align:right;
+}
