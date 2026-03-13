@@ -1,0 +1,26 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+.header-section{
+    text-align:center;
+    background-color:cyan;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style:italic;
+    font-weight: bold;
+}
+.header-section p{
+    margin:0;
+    padding:20px;
+}
+#display-players-names{
+    text-align:center;
+    font-family:Arial, Helvetica, sans-serif;
+    font-style:italic;
+}
+#grid{
+    display:block;
+    margin:0 auto;
+}
+
+

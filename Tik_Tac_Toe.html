@@ -1,0 +1,34 @@
+<!Doctype html>
+<html>
+    <head lang="US">
+        <title>Tic Tak Toe Game</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Tik_Tac_Toe.css">
+    </head>
+    <body>
+        <div class="header-section">
+            <p>WELCOME TO THE GAME</p>
+        </div>
+        <form id="players-name">
+            <label for="player1">Player1 Name:</label><br>
+            <input type="text" id="player1" name="player1" value="Ralph" required><br>
+            <label for="player2">Player2 Name:</label><br>
+            <input type="text" id="player2" name="player2" value="Oliver" required>
+            <input type="submit" value="submit">
+        </form>
+        <p id="display-players-names"></p>
+        <br>
+        <p id="player-turn"></p>
+        <br>
+
+        <canvas id="grid" width="300" height="300" style="border:2px solid black; display:none;" >
+            The grid to play!
+        </canvas>
+
+        <button id="start-button" onclick="StartGame()" style="display:none;">Start</button>
+        <button id="reset-button" onclick="Reset()" style="display:none;">Reset</button>
+        <button id="exit-button" onclick="LeaveGame()" style="display:none;">Exit</button>
+        
+        <script src="Tic_Tac_Toe.js"></script>
+    </body>
+</html>
