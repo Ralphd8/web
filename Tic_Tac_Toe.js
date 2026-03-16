@@ -1,5 +1,5 @@
-const player1_name = document.getElementById('player1').value;
-const player2_name = document.getElementById('player2').value;
+let player1_name;
+let player2_name;
 var c = document.getElementById("grid");
 
 const form = document.getElementById('players-name');
@@ -24,7 +24,7 @@ function removeForm(){
 
 function drawGrid(){
     var ctx = c.getContext("2d");
-    
+    ctx.beginPath(); 
     ctx.moveTo(100, 0);
     ctx.lineTo(100, 300);
     ctx.moveTo(200, 0);
@@ -41,6 +41,8 @@ function drawGrid(){
 function submitForm(e){
     e.preventDefault(); // stop page refresh
 
+    player1_name = document.getElementById('player1').value;
+    player2_name = document.getElementById('player2').value;
     greetingMessage();
     removeForm();
     drawGrid();
@@ -132,6 +134,46 @@ function checkWinner(player1_name,player2_name){
     }
 }
 
+function correspondantSection(x,y){
+    if(x>=0 && x <=100 && y >= 0 && y <= 100){
+        return 0;
+    }
+    else if(x>=100 && x <=200 && y >= 0 && y <= 100){
+        return 1;
+    }
+    else if(x>=200 && x <=300 && y >= 0 && y <= 100){
+        return 2;
+    }
+    else if(x>=0 && x <=100 && y >= 100 && y <= 200){
+        return 3;
+    }
+    else if(x>=100 && x <=200 && y >= 100 && y <= 200){
+        return 4;
+    }
+    else if(x>=200 && x <=300 && y >= 100 && y <= 200){
+        return 5;
+    }
+    else if(x>=0 && x <=100 && y >= 200 && y <= 300){
+        return 6;
+    }
+    else if(x>=100 && x <=200 && y >= 200 && y <= 300){
+        return 7;
+    }
+    else{
+        return 8;
+    }
+}
+
+function checkLocationValidation(x,y){
+    const section = correspondantSection(x,y);
+    if(arrGrid[section] == "empty"){
+        return "valid";
+    }
+    else{
+        return "not valid";
+    }
+}
+
 function LeaveGame(){
     window.location.replace("index.html");
 }
@@ -167,25 +209,17 @@ function clickCanvas(e){
     }
 }
 
-function Reset(){
+function StartGame(){
+    c.removeEventListener("click",clickCanvas);
+
     arrGrid.fill("empty"); // clear data
     gameOver = false;      // allow clicking again
-
     var ctx = c.getContext("2d");
-
-    ctx.clearRect(0,0,canvas.width,canvas.height); // erase everything
+    ctx.clearRect(0,0,c.width,c.height); // erase everything
     drawGrid(); // draw empty grid
 
-    // reset player turn
     player_turn = "player1_name";
     shape = "X";
-    document.getElementById('player-turn').innerHTML = document.getElementById('player1').value + ", it's your turn!";
-        
-}
-
-
-
-function StartGame(){
     document.getElementById('player-turn').innerHTML = player1_name + " it is your turn!";
 
     c.addEventListener("click",clickCanvas);    
